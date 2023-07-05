@@ -17,7 +17,7 @@
     "commands": [
       {
         "command": "vscode-daily-note.create-dailynote",
-        "title": "Hello World"
+        "title": "Daily Note Add"
       }
     ],
     "menus": {
