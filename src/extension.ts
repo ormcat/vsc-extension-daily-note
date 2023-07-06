@@ -9,10 +9,8 @@ export function activate(context: vscode.ExtensionContext) {
 	console.log('Congratulations, your extension "vscode-daily-note" is now active!');
 
 	// todo add menu for activity bar
-//	vscode.
 
-
-	let disposable = vscode.commands.registerCommand('vscode-daily-note.create-dailynote', () => {
+	let disposable = vscode.commands.registerCommand('vscode-daily-note.create-dailynote', async () => {
 		const workspaceUri = vscode.workspace.workspaceFolders?.[0].uri;
 		if (!workspaceUri) {
 			return vscode.window.showErrorMessage("No workspace. Please add folder");
@@ -31,12 +29,16 @@ export function activate(context: vscode.ExtensionContext) {
 		const notePath = vscode.Uri.joinPath(baseDir, formattedDate + ".md");
 
 		try {
-			vscode.workspace.fs.stat(notePath);
+			await vscode.workspace.fs.stat(notePath);
 		} catch {
-			vscode.workspace.fs.writeFile(notePath, new TextEncoder().encode('# '+ formattedDate));
+			await vscode.workspace.fs.writeFile(notePath, new TextEncoder().encode('# '+ formattedDate));
 		}
 		
-		// TODO onep today noter
+		vscode.workspace.openTextDocument(notePath)
+			.then((a: vscode.TextDocument) => {
+				vscode.window.showTextDocument(a, 1, false).then(e => {
+				});
+			});
 	});
 
 	context.subscriptions.push(disposable);
