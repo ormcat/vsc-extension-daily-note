@@ -31,16 +31,24 @@ export function activate(context: vscode.ExtensionContext) {
 		try {
 			await vscode.workspace.fs.stat(notePath);
 		} catch {
-			const text = '# '+ formattedDate + "\n\n## 今日の学び\n\n## タスクメモ"
+			const text = '# '+ formattedDate + "\n\n## 今日の学び\n\n\n## タスクメモ\n\n\n"
 			await vscode.workspace.fs.writeFile(notePath, new TextEncoder().encode(text));
 		}
 		
 		vscode.workspace.openTextDocument(notePath)
 			.then((a: vscode.TextDocument) => {
-				vscode.window.showTextDocument(a, 1, false).then(e => {
-				});
 			});
 	});
+
+
+    const button = vscode.window.createStatusBarItem(
+        vscode.StatusBarAlignment.Right, 
+        0
+    );
+    button.command = 'vscode-daily-note.create-dailynot';
+    button.text = 'DailyNote';
+  	context.subscriptions.push(button);
+	button.show();
 
 	context.subscriptions.push(disposable);
 }

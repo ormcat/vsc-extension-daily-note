@@ -19,18 +19,7 @@
         "command": "vscode-daily-note.create-dailynote",
         "title": "Daily Note Add"
       }
-    ],
-    "views": {
-      "explorer": [
-        {
-          "id": "nodeCreateDailyNoteAdd",
-          "name": "Daily Note Add",
-          "when": "workspaceHasPackageJSON",
-          "icon": "media/dep.svg",
-          "contextualTitle": "Package Explorer"
-        }
-      ]
-    }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
