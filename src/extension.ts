@@ -42,10 +42,10 @@ export function activate(context: vscode.ExtensionContext) {
 
 
     const button = vscode.window.createStatusBarItem(
-        vscode.StatusBarAlignment.Right, 
+        vscode.StatusBarAlignment.Left, 
         0
     );
-    button.command = 'vscode-daily-note.create-dailynot';
+    button.command = 'vscode-daily-note.create-dailynote';
     button.text = 'DailyNote';
   	context.subscriptions.push(button);
 	button.show();
