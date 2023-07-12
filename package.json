@@ -20,12 +20,14 @@
         "title": "Daily Note Add"
       }
     ],
-    "menus": {
-      "editor/context": [
+    "views": {
+      "explorer": [
         {
-          "when": "editorFocus",
-          "command": "vscode-daily-note.create-dailynote",
-          "group": "myGroup@1"
+          "id": "nodeCreateDailyNoteAdd",
+          "name": "Daily Note Add",
+          "when": "workspaceHasPackageJSON",
+          "icon": "media/dep.svg",
+          "contextualTitle": "Package Explorer"
         }
       ]
     }
