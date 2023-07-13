@@ -31,7 +31,7 @@ export function activate(context: vscode.ExtensionContext) {
 		try {
 			await vscode.workspace.fs.stat(notePath);
 		} catch {
-			const text = '# '+ formattedDate + "\n\n## 今日の学び\n\n\n## タスクメモ\n\n\n"
+			const text = '# '+ formattedDate + "\n\n## 今日やること\n\n\n## 今日やったこと\n\n\n## 今日の学び\n\n\n## タスクメモ\n\n\n"
 			await vscode.workspace.fs.writeFile(notePath, new TextEncoder().encode(text));
 		}
 		

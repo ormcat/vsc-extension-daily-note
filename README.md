@@ -7,6 +7,12 @@ Only Create file `notes/Y-m-d.md`
 ```
 # Y-m-d
 
+## 今日やること
+
+
+## 今日やったこと
+
+
 ## 今日の学び
 
 
