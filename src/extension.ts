@@ -33,7 +33,8 @@ export function activate(context: vscode.ExtensionContext) {
 			await vscode.workspace.fs.writeFile(notePath, new TextEncoder().encode(text));
 		}
 		
-		await vscode.workspace.openTextDocument(notePath);
+		var doc = await vscode.workspace.openTextDocument(notePath);
+		await vscode.window.showTextDocument(doc);
 	});
 
 	context.subscriptions.push(disposable);
