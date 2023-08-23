@@ -40,8 +40,7 @@
     "viewsWelcome": [
       {
         "view": "daily-note-add-button",
-        "contents": "Create and open today daily note.\n[Create](command:vscode-daily-note.create-dailynote)",
-        "when": "workbenchState == empty"
+        "contents": "Create and open today daily note.\n[Create](command:vscode-daily-note.create-dailynote)"
       }
     ]
   },
