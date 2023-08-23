@@ -8,8 +8,6 @@ export function activate(context: vscode.ExtensionContext) {
 
 	console.log('Congratulations, your extension "vscode-daily-note" is now active!');
 
-	// todo add menu for activity bar
-
 	let disposable = vscode.commands.registerCommand('vscode-daily-note.create-dailynote', async () => {
 		const workspaceUri = vscode.workspace.workspaceFolders?.[0].uri;
 		if (!workspaceUri) {
@@ -35,20 +33,8 @@ export function activate(context: vscode.ExtensionContext) {
 			await vscode.workspace.fs.writeFile(notePath, new TextEncoder().encode(text));
 		}
 		
-		vscode.workspace.openTextDocument(notePath)
-			.then((a: vscode.TextDocument) => {
-			});
+		await vscode.workspace.openTextDocument(notePath);
 	});
-
-
-    const button = vscode.window.createStatusBarItem(
-        vscode.StatusBarAlignment.Left, 
-        0
-    );
-    button.command = 'vscode-daily-note.create-dailynote';
-    button.text = 'DailyNote';
-  	context.subscriptions.push(button);
-	button.show();
 
 	context.subscriptions.push(disposable);
 }

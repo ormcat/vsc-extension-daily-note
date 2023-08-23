@@ -19,6 +19,30 @@
         "command": "vscode-daily-note.create-dailynote",
         "title": "Daily Note Add"
       }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "daily-note-add",
+          "title": "Daily Note",
+          "icon": "resources/daily-note.svg"
+        }
+      ]
+    },
+    "views": {
+      "daily-note-add": [
+        {
+          "id": "daily-note-add-button",
+          "name": "Daily Note Add"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "daily-note-add-button",
+        "contents": "Create and open today daily note.\n[Create](command:vscode-daily-note.create-dailynote)",
+        "when": "workbenchState == empty"
+      }
     ]
   },
   "scripts": {
